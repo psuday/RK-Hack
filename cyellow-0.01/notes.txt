@@ -1,0 +1,7 @@
+Tue Feb 16 15:52:11 UTC 2010
+
+This folder is from that rare species : a female hacker. Stephanie
+has put together stuff for FreeBSD Kernel hacking. Most of the stuff
+is similar to what Joseph Kong describes in his book. 
+
+But nonetheless interesting stuff. Arcane of course still !!

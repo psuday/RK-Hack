@@ -1,0 +1,20 @@
+
+This part is some experimental stuff to replace the address of a 
+symbol in the symbol table. 
+
+Use ./setsym [new address] [symbol name] in order to give the symbol
+a new address. The address you specify is from the offset of the relocation
+address of the linker file where this symbol is at home. For symbols
+from /kernel this will just be 0.
+
+You can test your changed with findsym [symbol name] from the tools directory.
+Note that this doesn't have any effect on the stuff that's currently running.
+Only if someone checks this manually or a new module etc gets linked, do those
+symbols get resolved.
+
+Use with care ;)
+
+- atrak
+
+
+

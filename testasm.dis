@@ -1,0 +1,13 @@
+
+# This disassembly is used to extract the byte codes for the movl statement
+# which is then used in the copysysent.c program's move array.
+
+testasm:     file format elf32-i386-freebsd
+
+Disassembly of section .text:
+
+08048074 <_start>:
+ 8048074:	90                   	nop    
+ 8048075:	c7 40 04 00 40 95 c3 	movl   $0xc3954000,0x4(%eax)
+ 804807c:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048081:	cd 80                	int    $0x80

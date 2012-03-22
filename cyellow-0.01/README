@@ -1,0 +1,67 @@
+
+Curious Yellow v0.01b
+
+This is the example code that goes with my article. There's multiple
+ways to achieve these things, so your approach might be different.
+Also the code is not always very nice ;)
+
+These things are written for FreeBSD 4.3, especially patching
+/kernel or kernel memory will most likely not work on any other release or
+if a different compiler has been used.
+
+module/        the actual curious yellow module with lots of example
+               code that goes with the fbsdfun article. 
+
+               ***edit Makefile to point to your kernel compile dir***
+               ***edit config.h for options***
+
+		control.c	syscall to control curious yellow with cyctl
+		cyellow.c	module loader 
+		exec.c		example of execution from within the kernel
+		file-sysc.c	file system related syscall replacements
+		file-ufs.c	file system related ufs calls replacements
+		fw.c		firewall rule hiding
+		icmp.c		icmp trigger
+		process.c	process and network connection hiding
+		util.c		several utility functions used throughout
+
+tools/         various tools:
+                
+                cyctl     - tool to control curious yellow
+                findsym   - find the address of a symbol
+                checkcall - tool to check an entry in the syscall table 
+                kread     - read part of /kernel, pipe into hexdump        
+                kvmread   - same just for /dev/kmem
+                putreturn - small demo to write a return to the start of a function
+                putjump   - put a jump at the beginning of one function to another
+                listprocs - list the currently running processes via /dev/kmem
+                tping     - send a spoofed icmp echo packet with the specified payload 
+                            (needs libnet)
+
+direct/        this contains an example on how to patch the kernel
+               directly. this example will patch suser_xxx on a freebsd
+               4.3 system to allow a second superuser
+                
+                fix_suser_xxx - will patch the currently running stuff via
+                                /dev/kmem
+                fix_suser_xxx_kernel - will write the changes to /kernel
+                            (remove immutable flag first)
+
+exp/           some experimental symbol table stuff I'm still playing
+               with. contains a module which loads a system call that
+               lets you replace the address of a symbol. (could also 
+               be done via /dev/kmem I suppose)
+            
+                setsym - small tool that will call the syscall provides
+                         by the module to set the address of a symbol
+
+trapmod/
+                example of a optionally stealth module, that will log
+                module loads
+
+
+For more information check out the article I put up at 
+http://www.r4k.net/mod/fbsdfun.html
+
+- atrak, 04/08/2001
+

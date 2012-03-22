@@ -1,0 +1,392 @@
+
+/boot/kernel/kernel:     file format elf32-i386-freebsd
+
+Disassembly of section .text:
+
+c0bb0de0 <syscall>:
+c0bb0de0:	55                   	push   %ebp
+c0bb0de1:	89 e5                	mov    %esp,%ebp
+c0bb0de3:	57                   	push   %edi
+c0bb0de4:	56                   	push   %esi
+c0bb0de5:	53                   	push   %ebx
+c0bb0de6:	81 ec 98 00 00 00    	sub    $0x98,%esp
+c0bb0dec:	64 8b 3d 00 00 00 00 	mov    %fs:0x0,%edi
+c0bb0df3:	8b 77 04             	mov    0x4(%edi),%esi
+c0bb0df6:	64 ff 05 3c 00 00 00 	incl   %fs:0x3c
+c0bb0dfd:	c7 87 14 01 00 00 00 	movl   $0x0,0x114(%edi)
+c0bb0e04:	00 00 00 
+c0bb0e07:	8b 45 08             	mov    0x8(%ebp),%eax
+c0bb0e0a:	89 87 cc 01 00 00    	mov    %eax,0x1cc(%edi)
+c0bb0e10:	8b 46 24             	mov    0x24(%esi),%eax
+c0bb0e13:	39 87 b0 00 00 00    	cmp    %eax,0xb0(%edi)
+c0bb0e19:	74 08                	je     c0bb0e23 <syscall+0x43>
+c0bb0e1b:	89 3c 24             	mov    %edi,(%esp)
+c0bb0e1e:	e8 9d 63 cc ff       	call   c08771c0 <cred_update_thread>
+c0bb0e23:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb0e26:	8b 42 40             	mov    0x40(%edx),%eax
+c0bb0e29:	83 c0 04             	add    $0x4,%eax
+c0bb0e2c:	89 45 f0             	mov    %eax,0xfffffff0(%ebp)
+c0bb0e2f:	89 d0                	mov    %edx,%eax
+c0bb0e31:	8b 52 28             	mov    0x28(%edx),%edx
+c0bb0e34:	89 55 ec             	mov    %edx,0xffffffec(%ebp)
+c0bb0e37:	8b 40 3c             	mov    0x3c(%eax),%eax
+c0bb0e3a:	89 85 74 ff ff ff    	mov    %eax,0xffffff74(%ebp)
+c0bb0e40:	8b 86 1c 02 00 00    	mov    0x21c(%esi),%eax
+c0bb0e46:	8b 48 30             	mov    0x30(%eax),%ecx
+c0bb0e49:	85 c9                	test   %ecx,%ecx
+c0bb0e4b:	74 23                	je     c0bb0e70 <syscall+0x90>
+c0bb0e4d:	8d 45 f0             	lea    0xfffffff0(%ebp),%eax
+c0bb0e50:	89 44 24 0c          	mov    %eax,0xc(%esp)
+c0bb0e54:	8d 45 ec             	lea    0xffffffec(%ebp),%eax
+c0bb0e57:	89 44 24 08          	mov    %eax,0x8(%esp)
+c0bb0e5b:	8d 45 cc             	lea    0xffffffcc(%ebp),%eax
+c0bb0e5e:	89 44 24 04          	mov    %eax,0x4(%esp)
+c0bb0e62:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb0e65:	89 14 24             	mov    %edx,(%esp)
+c0bb0e68:	ff d1                	call   *%ecx
+c0bb0e6a:	eb 36                	jmp    c0bb0ea2 <syscall+0xc2>
+c0bb0e6c:	8d 74 26 00          	lea    0x0(%esi),%esi
+c0bb0e70:	85 d2                	test   %edx,%edx
+c0bb0e72:	75 14                	jne    c0bb0e88 <syscall+0xa8>
+c0bb0e74:	8b 45 f0             	mov    0xfffffff0(%ebp),%eax
+c0bb0e77:	89 04 24             	mov    %eax,(%esp)
+c0bb0e7a:	e8 39 de ff ff       	call   c0baecb8 <fuword>
+c0bb0e7f:	89 45 ec             	mov    %eax,0xffffffec(%ebp)
+c0bb0e82:	83 45 f0 04          	addl   $0x4,0xfffffff0(%ebp)
+c0bb0e86:	eb 1a                	jmp    c0bb0ea2 <syscall+0xc2>
+c0bb0e88:	81 fa c6 00 00 00    	cmp    $0xc6,%edx
+c0bb0e8e:	75 12                	jne    c0bb0ea2 <syscall+0xc2>
+c0bb0e90:	8b 45 f0             	mov    0xfffffff0(%ebp),%eax
+c0bb0e93:	89 04 24             	mov    %eax,(%esp)
+c0bb0e96:	e8 1d de ff ff       	call   c0baecb8 <fuword>
+c0bb0e9b:	89 45 ec             	mov    %eax,0xffffffec(%ebp)
+c0bb0e9e:	83 45 f0 08          	addl   $0x8,0xfffffff0(%ebp)
+c0bb0ea2:	8b 86 1c 02 00 00    	mov    0x21c(%esi),%eax
+c0bb0ea8:	8b 40 08             	mov    0x8(%eax),%eax
+c0bb0eab:	85 c0                	test   %eax,%eax
+c0bb0ead:	74 03                	je     c0bb0eb2 <syscall+0xd2>
+c0bb0eaf:	21 45 ec             	and    %eax,0xffffffec(%ebp)
+c0bb0eb2:	8b 96 1c 02 00 00    	mov    0x21c(%esi),%edx
+c0bb0eb8:	8b 45 ec             	mov    0xffffffec(%ebp),%eax
+c0bb0ebb:	39 02                	cmp    %eax,(%edx)
+c0bb0ebd:	77 11                	ja     c0bb0ed0 <syscall+0xf0>
+c0bb0ebf:	8b 52 04             	mov    0x4(%edx),%edx
+c0bb0ec2:	89 95 70 ff ff ff    	mov    %edx,0xffffff70(%ebp)
+c0bb0ec8:	eb 18                	jmp    c0bb0ee2 <syscall+0x102>
+c0bb0eca:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+c0bb0ed0:	8b 96 1c 02 00 00    	mov    0x21c(%esi),%edx
+c0bb0ed6:	6b c0 1c             	imul   $0x1c,%eax,%eax
+c0bb0ed9:	03 42 04             	add    0x4(%edx),%eax
+c0bb0edc:	89 85 70 ff ff ff    	mov    %eax,0xffffff70(%ebp)
+c0bb0ee2:	8b 85 70 ff ff ff    	mov    0xffffff70(%ebp),%eax
+c0bb0ee8:	8b 00                	mov    (%eax),%eax
+c0bb0eea:	89 85 78 ff ff ff    	mov    %eax,0xffffff78(%ebp)
+c0bb0ef0:	8b 55 f0             	mov    0xfffffff0(%ebp),%edx
+c0bb0ef3:	85 d2                	test   %edx,%edx
+c0bb0ef5:	74 04                	je     c0bb0efb <syscall+0x11b>
+c0bb0ef7:	85 c0                	test   %eax,%eax
+c0bb0ef9:	75 07                	jne    c0bb0f02 <syscall+0x122>
+c0bb0efb:	bb 00 00 00 00       	mov    $0x0,%ebx
+c0bb0f00:	eb 1e                	jmp    c0bb0f20 <syscall+0x140>
+c0bb0f02:	8b 85 78 ff ff ff    	mov    0xffffff78(%ebp),%eax
+c0bb0f08:	c1 e0 02             	shl    $0x2,%eax
+c0bb0f0b:	89 44 24 08          	mov    %eax,0x8(%esp)
+c0bb0f0f:	8d 45 cc             	lea    0xffffffcc(%ebp),%eax
+c0bb0f12:	89 44 24 04          	mov    %eax,0x4(%esp)
+c0bb0f16:	89 14 24             	mov    %edx,(%esp)
+c0bb0f19:	e8 ae da ff ff       	call   c0bae9cc <copyin>
+c0bb0f1e:	89 c3                	mov    %eax,%ebx
+c0bb0f20:	8b 47 04             	mov    0x4(%edi),%eax
+c0bb0f23:	f6 80 ac 01 00 00 02 	testb  $0x2,0x1ac(%eax)
+c0bb0f2a:	74 24                	je     c0bb0f50 <syscall+0x170>
+c0bb0f2c:	f6 47 78 04          	testb  $0x4,0x78(%edi)
+c0bb0f30:	75 1e                	jne    c0bb0f50 <syscall+0x170>
+c0bb0f32:	8d 45 cc             	lea    0xffffffcc(%ebp),%eax
+c0bb0f35:	89 44 24 08          	mov    %eax,0x8(%esp)
+c0bb0f39:	8b 95 78 ff ff ff    	mov    0xffffff78(%ebp),%edx
+c0bb0f3f:	89 54 24 04          	mov    %edx,0x4(%esp)
+c0bb0f43:	8b 45 ec             	mov    0xffffffec(%ebp),%eax
+c0bb0f46:	89 04 24             	mov    %eax,(%esp)
+c0bb0f49:	e8 f2 0c cb ff       	call   c0861c40 <ktrsyscall>
+c0bb0f4e:	89 f6                	mov    %esi,%esi
+c0bb0f50:	83 87 fc 01 00 00 01 	addl   $0x1,0x1fc(%edi)
+c0bb0f57:	85 db                	test   %ebx,%ebx
+c0bb0f59:	0f 85 c7 01 00 00    	jne    c0bb1126 <syscall+0x346>
+c0bb0f5f:	c7 87 a4 01 00 00 00 	movl   $0x0,0x1a4(%edi)
+c0bb0f66:	00 00 00 
+c0bb0f69:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb0f6c:	8b 42 20             	mov    0x20(%edx),%eax
+c0bb0f6f:	89 87 a8 01 00 00    	mov    %eax,0x1a8(%edi)
+c0bb0f75:	f6 86 d0 01 00 00 04 	testb  $0x4,0x1d0(%esi)
+c0bb0f7c:	0f 84 a2 00 00 00    	je     c0bb1024 <syscall+0x244>
+c0bb0f82:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb0f89:	b8 04 00 00 00       	mov    $0x4,%eax
+c0bb0f8e:	f0 0f b1 96 98 00 00 	lock cmpxchg %edx,0x98(%esi)
+c0bb0f95:	00 
+c0bb0f96:	0f 94 c0             	sete   %al
+c0bb0f99:	84 c0                	test   %al,%al
+c0bb0f9b:	75 2a                	jne    c0bb0fc7 <syscall+0x1e7>
+c0bb0f9d:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb0fa3:	c7 44 24 10 00 00 00 	movl   $0x0,0x10(%esp)
+c0bb0faa:	00 
+c0bb0fab:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb0fb2:	00 
+c0bb0fb3:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb0fba:	00 
+c0bb0fbb:	89 54 24 04          	mov    %edx,0x4(%esp)
+c0bb0fbf:	89 04 24             	mov    %eax,(%esp)
+c0bb0fc2:	e8 d9 cd cb ff       	call   c086dda0 <_mtx_lock_sleep>
+c0bb0fc7:	8b 85 78 ff ff ff    	mov    0xffffff78(%ebp),%eax
+c0bb0fcd:	89 44 24 08          	mov    %eax,0x8(%esp)
+c0bb0fd1:	c7 44 24 04 04 00 00 	movl   $0x4,0x4(%esp)
+c0bb0fd8:	00 
+c0bb0fd9:	89 34 24             	mov    %esi,(%esp)
+c0bb0fdc:	e8 0f d6 d0 ff       	call   c08be5f0 <stopevent>
+c0bb0fe1:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb0fe8:	b9 04 00 00 00       	mov    $0x4,%ecx
+c0bb0fed:	89 d0                	mov    %edx,%eax
+c0bb0fef:	f0 0f b1 8e 98 00 00 	lock cmpxchg %ecx,0x98(%esi)
+c0bb0ff6:	00 
+c0bb0ff7:	0f 94 c0             	sete   %al
+c0bb0ffa:	84 c0                	test   %al,%al
+c0bb0ffc:	75 26                	jne    c0bb1024 <syscall+0x244>
+c0bb0ffe:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb1004:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb100b:	00 
+c0bb100c:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb1013:	00 
+c0bb1014:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+c0bb101b:	00 
+c0bb101c:	89 04 24             	mov    %eax,(%esp)
+c0bb101f:	e8 0c cc cb ff       	call   c086dc30 <_mtx_unlock_sleep>
+c0bb1024:	f6 46 5d 08          	testb  $0x8,0x5d(%esi)
+c0bb1028:	0f 84 a5 00 00 00    	je     c0bb10d3 <syscall+0x2f3>
+c0bb102e:	f6 86 d2 01 00 00 01 	testb  $0x1,0x1d2(%esi)
+c0bb1035:	0f 84 98 00 00 00    	je     c0bb10d3 <syscall+0x2f3>
+c0bb103b:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb1042:	b8 04 00 00 00       	mov    $0x4,%eax
+c0bb1047:	f0 0f b1 96 98 00 00 	lock cmpxchg %edx,0x98(%esi)
+c0bb104e:	00 
+c0bb104f:	0f 94 c0             	sete   %al
+c0bb1052:	84 c0                	test   %al,%al
+c0bb1054:	75 2a                	jne    c0bb1080 <syscall+0x2a0>
+c0bb1056:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb105c:	c7 44 24 10 00 00 00 	movl   $0x0,0x10(%esp)
+c0bb1063:	00 
+c0bb1064:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb106b:	00 
+c0bb106c:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb1073:	00 
+c0bb1074:	89 54 24 04          	mov    %edx,0x4(%esp)
+c0bb1078:	89 04 24             	mov    %eax,(%esp)
+c0bb107b:	e8 20 cd cb ff       	call   c086dda0 <_mtx_lock_sleep>
+c0bb1080:	c7 44 24 04 05 00 00 	movl   $0x5,0x4(%esp)
+c0bb1087:	00 
+c0bb1088:	89 3c 24             	mov    %edi,(%esp)
+c0bb108b:	e8 10 d7 cc ff       	call   c087e7a0 <ptracestop>
+c0bb1090:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb1097:	b9 04 00 00 00       	mov    $0x4,%ecx
+c0bb109c:	89 d0                	mov    %edx,%eax
+c0bb109e:	f0 0f b1 8e 98 00 00 	lock cmpxchg %ecx,0x98(%esi)
+c0bb10a5:	00 
+c0bb10a6:	0f 94 c0             	sete   %al
+c0bb10a9:	84 c0                	test   %al,%al
+c0bb10ab:	75 26                	jne    c0bb10d3 <syscall+0x2f3>
+c0bb10ad:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb10b3:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb10ba:	00 
+c0bb10bb:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb10c2:	00 
+c0bb10c3:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+c0bb10ca:	00 
+c0bb10cb:	89 04 24             	mov    %eax,(%esp)
+c0bb10ce:	e8 5d cb cb ff       	call   c086dc30 <_mtx_unlock_sleep>
+c0bb10d3:	83 3d 80 d9 db c0 00 	cmpl   $0x0,0xc0dbd980
+c0bb10da:	74 14                	je     c0bb10f0 <syscall+0x310>
+c0bb10dc:	0f b7 45 ec          	movzwl 0xffffffec(%ebp),%eax
+c0bb10e0:	89 7c 24 04          	mov    %edi,0x4(%esp)
+c0bb10e4:	89 04 24             	mov    %eax,(%esp)
+c0bb10e7:	e8 e4 41 ec ff       	call   c0a752d0 <audit_syscall_enter>
+c0bb10ec:	8d 74 26 00          	lea    0x0(%esi),%esi
+c0bb10f0:	8b 85 70 ff ff ff    	mov    0xffffff70(%ebp),%eax
+c0bb10f6:	8b 50 04             	mov    0x4(%eax),%edx
+c0bb10f9:	8d 45 cc             	lea    0xffffffcc(%ebp),%eax
+c0bb10fc:	89 44 24 04          	mov    %eax,0x4(%esp)
+c0bb1100:	89 3c 24             	mov    %edi,(%esp)
+c0bb1103:	ff d2                	call   *%edx
+c0bb1105:	89 c3                	mov    %eax,%ebx
+c0bb1107:	f6 47 7b 01          	testb  $0x1,0x7b(%edi)
+c0bb110b:	74 13                	je     c0bb1120 <syscall+0x340>
+c0bb110d:	89 7c 24 04          	mov    %edi,0x4(%esp)
+c0bb1111:	89 04 24             	mov    %eax,(%esp)
+c0bb1114:	e8 b7 3e ec ff       	call   c0a74fd0 <audit_syscall_exit>
+c0bb1119:	8d b4 26 00 00 00 00 	lea    0x0(%esi),%esi
+c0bb1120:	89 9f 0c 02 00 00    	mov    %ebx,0x20c(%edi)
+c0bb1126:	83 fb ff             	cmp    $0xffffffff,%ebx
+c0bb1129:	74 26                	je     c0bb1151 <syscall+0x371>
+c0bb112b:	85 db                	test   %ebx,%ebx
+c0bb112d:	74 07                	je     c0bb1136 <syscall+0x356>
+c0bb112f:	83 fb fe             	cmp    $0xfffffffe,%ebx
+c0bb1132:	75 2c                	jne    c0bb1160 <syscall+0x380>
+c0bb1134:	eb 6a                	jmp    c0bb11a0 <syscall+0x3c0>
+c0bb1136:	8b 87 a4 01 00 00    	mov    0x1a4(%edi),%eax
+c0bb113c:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb113f:	89 42 28             	mov    %eax,0x28(%edx)
+c0bb1142:	8b 87 a8 01 00 00    	mov    0x1a8(%edi),%eax
+c0bb1148:	89 42 20             	mov    %eax,0x20(%edx)
+c0bb114b:	83 62 3c fe          	andl   $0xfffffffe,0x3c(%edx)
+c0bb114f:	eb 4f                	jmp    c0bb11a0 <syscall+0x3c0>
+c0bb1151:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb1154:	8b 42 34             	mov    0x34(%edx),%eax
+c0bb1157:	2b 42 30             	sub    0x30(%edx),%eax
+c0bb115a:	89 42 34             	mov    %eax,0x34(%edx)
+c0bb115d:	eb 41                	jmp    c0bb11a0 <syscall+0x3c0>
+c0bb115f:	90                   	nop    
+c0bb1160:	8b 86 1c 02 00 00    	mov    0x21c(%esi),%eax
+c0bb1166:	8b 40 14             	mov    0x14(%eax),%eax
+c0bb1169:	85 c0                	test   %eax,%eax
+c0bb116b:	74 23                	je     c0bb1190 <syscall+0x3b0>
+c0bb116d:	39 c3                	cmp    %eax,%ebx
+c0bb116f:	7c 07                	jl     c0bb1178 <syscall+0x398>
+c0bb1171:	bb ff ff ff ff       	mov    $0xffffffff,%ebx
+c0bb1176:	eb 18                	jmp    c0bb1190 <syscall+0x3b0>
+c0bb1178:	8b 96 1c 02 00 00    	mov    0x21c(%esi),%edx
+c0bb117e:	8d 04 9d 00 00 00 00 	lea    0x0(,%ebx,4),%eax
+c0bb1185:	03 42 18             	add    0x18(%edx),%eax
+c0bb1188:	8b 18                	mov    (%eax),%ebx
+c0bb118a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+c0bb1190:	8b 45 08             	mov    0x8(%ebp),%eax
+c0bb1193:	89 58 28             	mov    %ebx,0x28(%eax)
+c0bb1196:	83 48 3c 01          	orl    $0x1,0x3c(%eax)
+c0bb119a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+c0bb11a0:	8b 85 74 ff ff ff    	mov    0xffffff74(%ebp),%eax
+c0bb11a6:	25 00 01 02 00       	and    $0x20100,%eax
+c0bb11ab:	3d 00 01 00 00       	cmp    $0x100,%eax
+c0bb11b0:	75 4e                	jne    c0bb1200 <syscall+0x420>
+c0bb11b2:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb11b5:	81 62 3c ff fe ff ff 	andl   $0xfffffeff,0x3c(%edx)
+c0bb11bc:	c7 44 24 04 50 00 00 	movl   $0x50,0x4(%esp)
+c0bb11c3:	00 
+c0bb11c4:	8d 85 7c ff ff ff    	lea    0xffffff7c(%ebp),%eax
+c0bb11ca:	89 04 24             	mov    %eax,(%esp)
+c0bb11cd:	e8 2e d3 ff ff       	call   c0bae500 <bzero>
+c0bb11d2:	83 4d c4 01          	orl    $0x1,0xffffffc4(%ebp)
+c0bb11d6:	c7 45 84 05 00 00 00 	movl   $0x5,0xffffff84(%ebp)
+c0bb11dd:	c7 45 8c 02 00 00 00 	movl   $0x2,0xffffff8c(%ebp)
+c0bb11e4:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb11e7:	8b 42 34             	mov    0x34(%edx),%eax
+c0bb11ea:	89 45 9c             	mov    %eax,0xffffff9c(%ebp)
+c0bb11ed:	8d 85 7c ff ff ff    	lea    0xffffff7c(%ebp),%eax
+c0bb11f3:	89 44 24 04          	mov    %eax,0x4(%esp)
+c0bb11f7:	89 3c 24             	mov    %edi,(%esp)
+c0bb11fa:	e8 81 27 cd ff       	call   c0883980 <trapsignal>
+c0bb11ff:	90                   	nop    
+c0bb1200:	8b 55 08             	mov    0x8(%ebp),%edx
+c0bb1203:	89 54 24 04          	mov    %edx,0x4(%esp)
+c0bb1207:	89 3c 24             	mov    %edi,(%esp)
+c0bb120a:	e8 e1 50 d0 ff       	call   c08b62f0 <userret>
+c0bb120f:	8b 47 04             	mov    0x4(%edi),%eax
+c0bb1212:	f6 80 ac 01 00 00 04 	testb  $0x4,0x1ac(%eax)
+c0bb1219:	74 25                	je     c0bb1240 <syscall+0x460>
+c0bb121b:	f6 47 78 04          	testb  $0x4,0x78(%edi)
+c0bb121f:	75 1f                	jne    c0bb1240 <syscall+0x460>
+c0bb1221:	8b 87 a4 01 00 00    	mov    0x1a4(%edi),%eax
+c0bb1227:	89 44 24 08          	mov    %eax,0x8(%esp)
+c0bb122b:	89 5c 24 04          	mov    %ebx,0x4(%esp)
+c0bb122f:	8b 45 ec             	mov    0xffffffec(%ebp),%eax
+c0bb1232:	89 04 24             	mov    %eax,(%esp)
+c0bb1235:	e8 c6 09 cb ff       	call   c0861c00 <ktrsysret>
+c0bb123a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+c0bb1240:	f6 86 d0 01 00 00 08 	testb  $0x8,0x1d0(%esi)
+c0bb1247:	0f 84 a3 00 00 00    	je     c0bb12f0 <syscall+0x510>
+c0bb124d:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb1254:	b8 04 00 00 00       	mov    $0x4,%eax
+c0bb1259:	f0 0f b1 96 98 00 00 	lock cmpxchg %edx,0x98(%esi)
+c0bb1260:	00 
+c0bb1261:	0f 94 c0             	sete   %al
+c0bb1264:	84 c0                	test   %al,%al
+c0bb1266:	75 2a                	jne    c0bb1292 <syscall+0x4b2>
+c0bb1268:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb126e:	c7 44 24 10 00 00 00 	movl   $0x0,0x10(%esp)
+c0bb1275:	00 
+c0bb1276:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb127d:	00 
+c0bb127e:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb1285:	00 
+c0bb1286:	89 54 24 04          	mov    %edx,0x4(%esp)
+c0bb128a:	89 04 24             	mov    %eax,(%esp)
+c0bb128d:	e8 0e cb cb ff       	call   c086dda0 <_mtx_lock_sleep>
+c0bb1292:	8b 45 ec             	mov    0xffffffec(%ebp),%eax
+c0bb1295:	89 44 24 08          	mov    %eax,0x8(%esp)
+c0bb1299:	c7 44 24 04 08 00 00 	movl   $0x8,0x4(%esp)
+c0bb12a0:	00 
+c0bb12a1:	89 34 24             	mov    %esi,(%esp)
+c0bb12a4:	e8 47 d3 d0 ff       	call   c08be5f0 <stopevent>
+c0bb12a9:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb12b0:	b9 04 00 00 00       	mov    $0x4,%ecx
+c0bb12b5:	89 d0                	mov    %edx,%eax
+c0bb12b7:	f0 0f b1 8e 98 00 00 	lock cmpxchg %ecx,0x98(%esi)
+c0bb12be:	00 
+c0bb12bf:	0f 94 c0             	sete   %al
+c0bb12c2:	84 c0                	test   %al,%al
+c0bb12c4:	75 2a                	jne    c0bb12f0 <syscall+0x510>
+c0bb12c6:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb12cc:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb12d3:	00 
+c0bb12d4:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb12db:	00 
+c0bb12dc:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+c0bb12e3:	00 
+c0bb12e4:	89 04 24             	mov    %eax,(%esp)
+c0bb12e7:	e8 44 c9 cb ff       	call   c086dc30 <_mtx_unlock_sleep>
+c0bb12ec:	8d 74 26 00          	lea    0x0(%esi),%esi
+c0bb12f0:	f6 46 5d 08          	testb  $0x8,0x5d(%esi)
+c0bb12f4:	0f 84 a9 00 00 00    	je     c0bb13a3 <syscall+0x5c3>
+c0bb12fa:	f6 86 d2 01 00 00 02 	testb  $0x2,0x1d2(%esi)
+c0bb1301:	0f 84 9c 00 00 00    	je     c0bb13a3 <syscall+0x5c3>
+c0bb1307:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb130e:	b8 04 00 00 00       	mov    $0x4,%eax
+c0bb1313:	f0 0f b1 96 98 00 00 	lock cmpxchg %edx,0x98(%esi)
+c0bb131a:	00 
+c0bb131b:	0f 94 c0             	sete   %al
+c0bb131e:	84 c0                	test   %al,%al
+c0bb1320:	75 2e                	jne    c0bb1350 <syscall+0x570>
+c0bb1322:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb1328:	c7 44 24 10 00 00 00 	movl   $0x0,0x10(%esp)
+c0bb132f:	00 
+c0bb1330:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb1337:	00 
+c0bb1338:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb133f:	00 
+c0bb1340:	89 54 24 04          	mov    %edx,0x4(%esp)
+c0bb1344:	89 04 24             	mov    %eax,(%esp)
+c0bb1347:	e8 54 ca cb ff       	call   c086dda0 <_mtx_lock_sleep>
+c0bb134c:	8d 74 26 00          	lea    0x0(%esi),%esi
+c0bb1350:	c7 44 24 04 05 00 00 	movl   $0x5,0x4(%esp)
+c0bb1357:	00 
+c0bb1358:	89 3c 24             	mov    %edi,(%esp)
+c0bb135b:	e8 40 d4 cc ff       	call   c087e7a0 <ptracestop>
+c0bb1360:	64 8b 15 00 00 00 00 	mov    %fs:0x0,%edx
+c0bb1367:	b9 04 00 00 00       	mov    $0x4,%ecx
+c0bb136c:	89 d0                	mov    %edx,%eax
+c0bb136e:	f0 0f b1 8e 98 00 00 	lock cmpxchg %ecx,0x98(%esi)
+c0bb1375:	00 
+c0bb1376:	0f 94 c0             	sete   %al
+c0bb1379:	84 c0                	test   %al,%al
+c0bb137b:	75 26                	jne    c0bb13a3 <syscall+0x5c3>
+c0bb137d:	8d 86 88 00 00 00    	lea    0x88(%esi),%eax
+c0bb1383:	c7 44 24 0c 00 00 00 	movl   $0x0,0xc(%esp)
+c0bb138a:	00 
+c0bb138b:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+c0bb1392:	00 
+c0bb1393:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+c0bb139a:	00 
+c0bb139b:	89 04 24             	mov    %eax,(%esp)
+c0bb139e:	e8 8d c8 cb ff       	call   c086dc30 <_mtx_unlock_sleep>
+c0bb13a3:	81 c4 98 00 00 00    	add    $0x98,%esp
+c0bb13a9:	5b                   	pop    %ebx
+c0bb13aa:	5e                   	pop    %esi
+c0bb13ab:	5f                   	pop    %edi
+c0bb13ac:	5d                   	pop    %ebp
+c0bb13ad:	c3                   	ret    
+c0bb13ae:	89 f6                	mov    %esi,%esi

@@ -1,0 +1,4 @@
+
+/boot/kernel/kernel:     file format elf32-i386-freebsd
+
+Disassembly of section .text:

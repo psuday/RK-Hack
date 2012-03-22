@@ -1,0 +1,51 @@
+// This program is created to figure out the patch addresses for 
+// syscall. This code will then  be copied into copysysent.c.
+#include <stdio.h>
+int main(int argc, char ** argv) {
+
+	unsigned long offsetarray[] = { 
+0x43,
+0x9f,
+0xbb,
+0x13e,
+0x16e,
+0x1e7,
+0x201,
+0x244,
+0x2a0,
+0x2b0,
+0x2f3,
+0x30c,
+0x339,
+0x3f2,
+0x41f,
+0x42f,
+0x45a,
+0x4b2,
+0x4c9,
+0x50c,
+0x56c,
+0x580,
+0x5c3 };
+
+unsigned long calladdress[] = { 0xc08771c0, 0xc0baecb8, 0xc0baecb8, 0xc0bae9cc,
+		0xc0861c40, 0xc086dda0, 0xc08be5f0, 0xc086dc30,
+		0xc086dda0, 0xc087e7a0, 0xc086dc30, 0xc0a752d0,
+		0xc0a74fd0, 0xc0bae500, 0xc0883980, 0xc08b62f0,
+		0xc0861c00, 0xc086dda0, 0xc08be5f0, 0xc086dc30,
+		0xc086dda0, 0xc087e7a0, 0xc086dc30 };
+
+#define baseaddress 0xc0bb0de0
+
+unsigned long patchvalue[23]; 
+
+int i = 0;
+
+for (i = 0; i < 23; i++) {
+	patchvalue[i] = calladdress[i] - (baseaddress + offsetarray[i]);
+
+	printf("%x\n", patchvalue[i]);
+}	
+
+
+}
