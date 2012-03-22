@@ -156,10 +156,6 @@ be a good modification to the proc hiding code.
 
 Fri Jan 29 14:56:13 UTC 2010 Fremont, CA
 
-I have been wandering around, I have not gone to office since last
-Monday. Nobody questions me. Sometimes I feel a sense of fear, but
-every time I realize that I have to accept all possible choices.
-
 I got sidetracked into networking two computers together. I found
 that the domain and xp work group dont work together at all. I couldnt
 share files or anything else. For two domain computers (in different
